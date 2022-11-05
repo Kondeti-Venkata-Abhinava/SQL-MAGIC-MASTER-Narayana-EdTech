@@ -1,0 +1,166 @@
+--  SQL Magic Master 
+-- -----------------
+
+-- Kondeti Venkata Abhinava
+-- N170033-Chem
+
+
+/*
+
+-- Creating Table for Users 
+
+ CREATE TABLE Users(
+ Id int PRIMARY KEY,
+ LastName varchar(100) NOT NULL,
+ FirstName varchar(100) NOT NULL,
+ Age int,
+ Salary int
+ );
+
+
+ */
+
+
+
+/*
+
+-- Creating Table for Movies
+
+ CREATE TABLE Movies(
+ Id int PRIMARY KEY,
+ MovieName varchar(100),
+ hero varchar(100),
+ heroin varchar(100),
+ ticketPrice int,
+ movieRating int CHECK (
+ movieRating >= 0
+ AND movieRating <= 10
+ ),
+ userId int,
+ FOREIGN KEY (userId) REFERENCES Users(Id)
+ );
+
+ */
+
+
+/*
+
+-- Inserting Users into users table
+
+ INSERT INTO
+ Users
+ VALUES
+ (1, "Kondeti", "Abhinava", 21, 20000),
+ (2, "Gadiboina", "KedharNadh", 21, 20000),
+ (3, "Jalli", "Nithish", 21, 23000),
+ (4, "Alluri", "Ajith", 21, 230430);
+ */
+
+
+/*
+
+-- Inserting Movies into Movies table
+
+ INSERT INTO
+ Movies
+ VALUES
+ (1, "RadheShayam", "prabhas", "puja", 140, 4, 1),
+ (2, "Sahoo", "prabhas", "puja", 200, 8, 1),
+ (3, "Bahubali", "prabhas", "Anushka", 250, 9, 1),
+ (4, "Orange", "Ram", "Jenny", 100, 4, 2),
+ (5, "Orange2", "Ram", "kajal", 100, 4, 2),
+ (6, "magadhera", "Ram charan", "kajal", 150, 3, 2);
+ */
+
+
+/*
+
+
+ INSERT INTO
+ movies
+ VALUES
+ (7, "Orange3", "Ram", "kajal", 200, 4, 2);
+ 
+ */
+
+
+/*
+ 
+-- list all movies of a user
+
+ SELECT
+ *
+ FROM
+ Movies
+ WHERE
+ userId = 1;
+
+ */
+
+
+/*
+
+ -- list of movies whre price greater than 150 of a user
+
+ SELECT
+ *
+ FROM
+ movies
+ WHERE
+ userId = 1
+ AND ticketPrice > 150;
+ */
+
+
+/*
+
+ -- list of moive where rating below 5 of a user 
+
+ SELECT
+ *
+ FROM
+ movies
+ WHERE
+ movieRating < 5
+ AND userId = 1;
+ */
+
+
+/*
+
+ -- list of movies of a user where heroin repeats more than twice
+
+ SELECT
+ *
+ FROM
+ movies
+ WHERE
+ userId = 1
+ AND heroin IN (
+ SELECT
+ heroin
+ FROM
+ movies
+ WHERE
+ userId = 1
+ GROUP BY
+ heroin
+ HAVING
+ count(*) >= 2
+ );
+ */
+
+
+/*
+
+ -- total and avg amount spent by a user 
+
+ SELECT
+ sum(ticketPrice) AS Total,
+ round(avg(ticketPrice), 2) AS Avg_Price
+ FROM
+ movies
+ WHERE
+ userId = 1;
+
+ */
