@@ -2,10 +2,7 @@
 -- -----------------
 
 -- Kondeti Venkata Abhinava
--- N170033-Chem
-
-
-/*
+-- N170033-Chemical
 
 -- Creating Table for Users 
 
@@ -17,17 +14,10 @@
  Salary int
  );
 
-
- */
-
-
-
-/*
-
 -- Creating Table for Movies
 
  CREATE TABLE Movies(
- Id int PRIMARY KEY,
+ Id int,
  MovieName varchar(100),
  hero varchar(100),
  heroin varchar(100),
@@ -40,11 +30,6 @@
  FOREIGN KEY (userId) REFERENCES Users(Id)
  );
 
- */
-
-
-/*
-
 -- Inserting Users into users table
 
  INSERT INTO
@@ -54,38 +39,22 @@
  (2, "Gadiboina", "KedharNadh", 21, 20000),
  (3, "Jalli", "Nithish", 21, 23000),
  (4, "Alluri", "Ajith", 21, 230430);
- */
-
-
-/*
-
+ 
 -- Inserting Movies into Movies table
 
- INSERT INTO
+INSERT INTO
  Movies
  VALUES
  (1, "RadheShayam", "prabhas", "puja", 140, 4, 1),
  (2, "Sahoo", "prabhas", "puja", 200, 8, 1),
- (3, "Bahubali", "prabhas", "Anushka", 250, 9, 1),
+ (3, "magadhera", "Ram charan", "kajal", 150, 3, 2),
  (4, "Orange", "Ram", "Jenny", 100, 4, 2),
  (5, "Orange2", "Ram", "kajal", 100, 4, 2),
- (6, "magadhera", "Ram charan", "kajal", 150, 3, 2);
- */
+ (6, "Bahubali", "prabhas", "Anushka", 250, 9, 1),
+ (7,"Brahmastra","Ranbir kapoor","Alia Bhatt",400,10,3),
+ (8,"Jetty","Kishore","Nandhitha swetha",300,6,4),
+ (9, "Orange3", "Ram", "kajal", 460, 7, 2);
 
-
-/*
-
-
- INSERT INTO
- movies
- VALUES
- (7, "Orange3", "Ram", "kajal", 200, 4, 2);
- 
- */
-
-
-/*
- 
 -- list all movies of a user
 
  SELECT
@@ -94,11 +63,6 @@
  Movies
  WHERE
  userId = 1;
-
- */
-
-
-/*
 
  -- list of movies whre price greater than 150 of a user
 
@@ -109,10 +73,6 @@
  WHERE
  userId = 1
  AND ticketPrice > 150;
- */
-
-
-/*
 
  -- list of moive where rating below 5 of a user 
 
@@ -123,10 +83,6 @@
  WHERE
  movieRating < 5
  AND userId = 1;
- */
-
-
-/*
 
  -- list of movies of a user where heroin repeats more than twice
 
@@ -148,10 +104,6 @@
  HAVING
  count(*) >= 2
  );
- */
-
-
-/*
 
  -- total and avg amount spent by a user 
 
@@ -162,5 +114,3 @@
  movies
  WHERE
  userId = 1;
-
- */
